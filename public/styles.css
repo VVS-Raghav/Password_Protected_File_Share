@@ -58,7 +58,8 @@ body {
     border: none;
     border-radius: 8px;
     padding: 0.7rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -67,18 +68,59 @@ body {
     background-color: #00b49f;
 }
 
-.file-link {
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: 1.5rem;
-    border-radius: 10px;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-    margin-top: 2rem;
+.file-link-box {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px solid #38bdf8;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: fit-content;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.file-link a {
-    color: #00ffcc;
-    text-decoration: underline;
-    font-weight: bold;
+.file-link-box h2 {
+    padding-left: 25px;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.file-link-box p {
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.link-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #e0f2fe;
+  padding: 0.5rem 6.5rem;
+  border-radius: 10px;
+}
+
+.link-container a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link-container a:hover {
+  color: #2563eb;
+}
+
+.copy-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.copy-icon:hover {
+  color: #16a34a;
+}
+
+.copy-icon.copied {
+  color: #16a34a;
 }

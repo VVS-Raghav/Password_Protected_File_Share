@@ -10,8 +10,7 @@
 </head>
 <body>
     <h1 class="title">Password protected File Sharing website</h1>
-
-    
+        
     <form action="/upload" method="post" class="ipform" enctype="multipart/form-data">
         <label for="file">File:</label>
         <input type="file" name="file" id="uploadFile" required />
@@ -21,11 +20,29 @@
     </form>
 
     <% if(locals.fileLink){%>
-    <div class="file-link" style="margin-top:2rem ;">
-        <h2>File Uploaded Successfully!</h2>
-        <p>Click the link below to download your file:</p>
-        <a href="<%= locals.fileLink %>">Download File</a>
-    </div>
+        <div class="file-link-box">
+            <h2>✅ File Uploaded Successfully!</h2>
+            <p>Use the link below to download your file from anywhere:</p>
+            <div class="link-container">
+            <a href="<%= fileLink %>" id="myLink" target="_blank">🔗 Download File</a>
+            <span class="copy-icon" onclick="copyToClipboard('myLink', this)">📋</span>
+            </div>
+        </div>
     <% }%>
+
+    
+    <script>
+        function copyToClipboard(linkId, iconElement) {
+            const link = document.getElementById(linkId).href;
+            navigator.clipboard.writeText(link).then(() => {
+            iconElement.textContent = "✅";
+            iconElement.classList.add("copied");
+            setTimeout(() => {
+                iconElement.textContent = "📋";
+                iconElement.classList.remove("copied");
+            }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
